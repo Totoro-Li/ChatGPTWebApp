@@ -1,32 +1,32 @@
-import { Theme } from './theme';
+import {Theme} from './theme';
 import {TextTemplate} from "@type/template";
 
 export type Role = 'user' | 'assistant' | 'system';
 export const roles: Role[] = ['user', 'assistant', 'system'];
 
 export interface MessageInterface {
-  role: Role;
-  content: string;
+    role: Role;
+    content: string;
 }
 
 export interface ChatInterface {
-  title: string;
-  messages: MessageInterface[];
-  config: ConfigInterface;
-  titleSet: boolean;
+    title: string;
+    messages: MessageInterface[];
+    config: ConfigInterface;
+    titleSet: boolean;
 }
 
 export interface ConfigInterface {
-  temperature: number;
-  presence_penalty: number;
+    temperature: number;
+    presence_penalty: number;
 }
 
 export interface LocalStorageInterface {
-  chats: ChatInterface[];
-  currentChatIndex: number;
-  apiKey: string;
-  apiFree: boolean;
-  apiFreeEndpoint: string;
-  theme: Theme;
-  templates: TextTemplate[];
+    chats: ChatInterface[];
+    currentChatIndex: number;
+    apiKey: string;
+    apiFree: boolean;
+    apiFreeEndpoint: string;
+    theme: Theme;
+    templates: TextTemplate[];
 }

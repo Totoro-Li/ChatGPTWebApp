@@ -1,5 +1,5 @@
 import {StoreSlice} from './store';
-import {TextTemplate, DefaultTextTemplate} from '@type/template';
+import {TextTemplate} from '@type/template';
 
 export interface TemplateSlice {
     templates: TextTemplate[];

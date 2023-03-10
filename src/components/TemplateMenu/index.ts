@@ -1,1 +1,1 @@
-export { default } from './TemplateMenu';
+export {default} from './TemplateMenu';

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PopupModal from '@components/PopupModal';
-import {TextTemplate, DefaultTextTemplate, TextTemplateToString, StringToTextTemplate} from '@type/template';
+import {DefaultTextTemplate, StringToTextTemplate, TextTemplate, TextTemplateToString} from '@type/template';
 
 
 const TemplateMenu = ({
