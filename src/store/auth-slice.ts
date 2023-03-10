@@ -3,15 +3,15 @@ import {StoreSlice} from './store';
 export interface AuthSlice {
     apiKey?: string;
     apiFree: boolean;
-    apiFreeEndpoint: string;
+    apiPublicEndpoint: string;
     setApiKey: (apiKey: string) => void;
     setApiFree: (apiFree: boolean) => void;
-    setApiFreeEndpoint: (apiFreeEndpoint: string) => void;
+    setapiPublicEndpoint: (apiPublicEndpoint: string) => void;
 }
 
 export const createAuthSlice: StoreSlice<AuthSlice> = (set, get) => ({
     apiFree: true,
-    apiFreeEndpoint: 'https://chatgpt-api.shn.hk/v1/',
+    apiPublicEndpoint: 'https://api.pkucs.top/chat/',
     setApiKey: (apiKey: string) => {
         set((prev: AuthSlice) => ({
             ...prev,
@@ -24,10 +24,10 @@ export const createAuthSlice: StoreSlice<AuthSlice> = (set, get) => ({
             apiFree: apiFree,
         }));
     },
-    setApiFreeEndpoint: (apiFreeEndpoint: string) => {
+    setapiPublicEndpoint: (apiPublicEndpoint: string) => {
         set((prev: AuthSlice) => ({
             ...prev,
-            apiFreeEndpoint: apiFreeEndpoint,
+            apiPublicEndpoint: apiPublicEndpoint,
         }));
     },
 });

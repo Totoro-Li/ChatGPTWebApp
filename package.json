@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "dompurify": "^3.0.1",
+    "gpt3-tokenizer": "^1.1.5",
     "highlight.js": "^11.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

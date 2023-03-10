@@ -25,13 +25,13 @@ const useStore = create<StoreState>()(
             ...createTemplateSlice(set, get),
         }),
         {
-            name: 'chat-gpt-web-app-pkucs',
+            name: 'chatgpt-elysium',
             partialize: (state) => ({
                 chats: state.chats,
                 currentChatIndex: state.currentChatIndex,
                 apiKey: state.apiKey,
                 apiFree: state.apiFree,
-                apiFreeEndpoint: state.apiFreeEndpoint,
+                apiPublicEndpoint: state.apiPublicEndpoint,
                 theme: state.theme,
                 templates: state.templates,
             }),

@@ -1,9 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import PopupModal from '@components/PopupModal';
 import AboutIcon from '@icon/AboutIcon';
 
 const AboutMenu = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [visitedBefore, setVisitedBefore] = useState<boolean>(false);
+    useEffect(() => {
+        const storedValue = localStorage.getItem("vis_flag");
+        const hasVisited = storedValue === "true";
+        setVisitedBefore(hasVisited);
+        if (!hasVisited) {
+            localStorage.setItem("vis_flag", String(true));
+            setIsModalOpen(true);
+        }
+    }, []);
 
     return (
         <>
@@ -23,31 +33,30 @@ const AboutMenu = () => {
                     title='About'
                     setIsModalOpen={setIsModalOpen}
                     cancelButton={false}
+                    handleConfirm={() => {
+                        setIsModalOpen(false);
+                    }}
+                    handleClose={() => {
+                        setIsModalOpen(false);
+                    }}
                 >
                     <div className='p-6 border-b border-gray-200 dark:border-gray-600'>
                         <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm flex flex-col gap-2'>
-                            <p>Free ChatGPT is an amazing open-source web app that allows you to play with OpenAI's ChatGPT API for free!</p>
-
-                            <h2 className='text-lg font-bold'>Discord Server</h2>
-                            <p>We invite you to join our Discord community! Our Discord server is a great place to exchange ChatGPT ideas and tips, and submit feature requests for Free ChatGPT. You'll have the opportunity to interact with the developers behind Free ChatGPT as
-                                well as other AI enthusiasts who share your passion.</p>
-
-                            <p>To join our server, simply click on the following link: <a className='link' href='https://discord.gg/g3Qnwy4V6A' target='_blank'>https://discord.gg/g3Qnwy4V6A</a>. We can't wait to see you there!</p>
-
+                            {!visitedBefore && (<>
+                                <h2 className='text-lg font-bold'>别来无恙</h2>
+                                <p>
+                                    本站为秘书处同学提供免翻墙和账号注册的ChatGPT，可能对大部分同学而言是个没有人机验证、也不用翻墙，速度更快的替代品。如果有一定兴趣和理解能力，也可以尝试一下针对秘书处工作特别开发的问答模板，针对国合及秘书处常用文书工作、信函格式，以及北大相关词汇概念进行了Fine-Tuning，致力于提供更平滑、更高效的AI工作流。<br/>
+                                    作为业余开发的项目，本站仍在不断完善中，针对bug请通过左下角我的联系方式提出宝贵意见。<br/>
+                                    玩耍愉快！Happy hacking!
+                                </p>
+                            </>)}
                             <h2 className='text-lg font-bold'>Privacy Statement</h2>
                             <p>We highly value your privacy and are committed to safeguarding the privacy of our users. We do not collect or store any text you enter or receive from the OpenAI server in any form. Our source code is available for your inspection to verify this
                                 statement.</p>
 
                             <p>We prioritise the security of your API key and handle it with utmost care. If you use your own API key, your key is exclusively stored on your browser and never shared with any third-party entity. It is solely used for the intended purpose of
                                 accessing the OpenAI API and not for any other unauthorised use.</p>
-                            <h2 className='text-lg font-bold'>Support</h2>
-                            <p>At freechatgpt.chat, we strive to provide you with useful and amazing features around the clock. And just like any project, your support and motivation will be instrumental in helping us keep moving forward!</p>
-                            <p>If you have enjoyed using our app, we kindly ask you to give this <a href="https://github.com/ztjhz/ChatGPTFreeApp/" target="_blank" className="link">project</a> a ⭐️. Your endorsement means a lot to us and encourages us to work harder towards
-                                delivering the best possible experience.</p>
-                            <p>If you would like to support the team, consider buying us a coffee by clicking on the button below. Every contribution, no matter how small, helps us to maintain and improve our service.</p>
-                            <a href="https://ko-fi.com/freechatgpt" target="_blank">
-                                <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="support"/>
-                            </a>
+
                             <p>Thank you for being a part of our community, and we look forward to serving you better in the future.</p>
                         </div>
                     </div>

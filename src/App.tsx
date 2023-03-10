@@ -16,6 +16,11 @@ function App() {
     const setCurrentChatIndex = useStore((state) => state.setCurrentChatIndex);
 
     useEffect(() => {
+        // Check if local storage is empty
+        if (localStorage.length === 0) {
+            //TODO
+
+        }
         // legacy local storage
         const oldChats = localStorage.getItem('chats');
         const apiKey = localStorage.getItem('apiKey');

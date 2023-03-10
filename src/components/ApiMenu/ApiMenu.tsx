@@ -14,17 +14,17 @@ const ApiMenu = ({
     const setApiKey = useStore((state) => state.setApiKey);
     const apiFree = useStore((state) => state.apiFree);
     const setApiFree = useStore((state) => state.setApiFree);
-    const apiFreeEndpoint = useStore((state) => state.apiFreeEndpoint);
-    const setApiFreeEndpoint = useStore((state) => state.setApiFreeEndpoint);
+    const apiPublicEndpoint = useStore((state) => state.apiPublicEndpoint);
+    const setapiPublicEndpoint = useStore((state) => state.setapiPublicEndpoint);
 
     const [_apiFree, _setApiFree] = useState<boolean>(apiFree);
     const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
-    const [_apiFreeEndpoint, _setApiFreeEndpoint] =
-        useState<string>(apiFreeEndpoint);
+    const [_apiPublicEndpoint, _setapiPublicEndpoint] =
+        useState<string>(apiPublicEndpoint);
 
     const handleSave = async () => {
         if (_apiFree === true) {
-            setApiFreeEndpoint(_apiFreeEndpoint);
+            setapiPublicEndpoint(_apiPublicEndpoint);
             setApiFree(true);
             setIsModalOpen(false);
         } else {
@@ -44,7 +44,7 @@ const ApiMenu = ({
 
     const handleClose = () => {
         _setApiFree(apiFree);
-        _setApiFreeEndpoint(apiFreeEndpoint);
+        _setapiPublicEndpoint(apiPublicEndpoint);
         apiKey && _setApiKey(apiKey);
     };
 
@@ -73,13 +73,13 @@ const ApiMenu = ({
                         <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
                             Use free API endpoint from{' '}
                             <a
-                                href='https://github.com/ayaka14732/ChatGPTAPIFree'
+                                href='https://github.com/Totoro-Li'
                                 className='underline dark:hover:text-white hover:text-black'
                                 target='_blank'
                             >
-                                Ayaka
+                                Li
                             </a>
-                            : https://chatgpt-api.shn.hk/v1/ or enter your own API endpoint
+                            : https://api.pkucs.top/chat/ or enter your own API endpoint
                         </div>
                         <div className='flex gap-2 items-center justify-center'>
                             <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
@@ -88,10 +88,10 @@ const ApiMenu = ({
                             <input
                                 type='text'
                                 className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
-                                value={_apiFreeEndpoint}
-                                placeholder='https://chatgpt-api.shn.hk/v1/'
+                                value={_apiPublicEndpoint}
+                                placeholder='https://api.pkucs.top/chat/'
                                 onChange={(e) => {
-                                    _setApiFreeEndpoint(e.target.value);
+                                    _setapiPublicEndpoint(e.target.value);
                                 }}
                             />
                         </div>

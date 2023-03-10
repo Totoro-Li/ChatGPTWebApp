@@ -50438,7 +50438,7 @@ const bpe = (token) => {
     return word;
 };
 
-export default (text: string) => {
+export const countTokens = (text: string) => {
     let i = 0;
     const matches = Array.from(text.matchAll(pat)).map((x) => x[0]);
     for (let token of matches) {

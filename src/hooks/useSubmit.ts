@@ -22,7 +22,7 @@ const useSubmit = () => {
         let data;
         if (apiFree) {
             data = await getChatCompletionFree(
-                useStore.getState().apiFreeEndpoint,
+                useStore.getState().apiPublicEndpoint,
                 message,
                 defaultChatConfig
             );
@@ -56,7 +56,7 @@ const useSubmit = () => {
 
             if (apiFree) {
                 stream = await getChatCompletionStreamFree(
-                    useStore.getState().apiFreeEndpoint,
+                    useStore.getState().apiPublicEndpoint,
                     messages,
                     chats[currentChatIndex].config
                 );

@@ -26,7 +26,7 @@ export interface LocalStorageInterface {
     currentChatIndex: number;
     apiKey: string;
     apiFree: boolean;
-    apiFreeEndpoint: string;
+    apiPublicEndpoint: string;
     theme: Theme;
     templates: TextTemplate[];
 }
