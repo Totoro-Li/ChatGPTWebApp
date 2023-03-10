@@ -10,7 +10,7 @@ export interface ConfigSlice {
 
 export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
   openConfig: false,
-  theme: 'dark',
+  theme: 'light',
   setOpenConfig: (openConfig: boolean) => {
     set((prev: ConfigSlice) => ({
       ...prev,

@@ -3,11 +3,12 @@ import { persist } from 'zustand/middleware';
 import { ChatSlice, createChatSlice } from './chat-slice';
 import { InputSlice, createInputSlice } from './input-slice';
 import { AuthSlice, createAuthSlice } from './auth-slice';
+import {createTemplateSlice, TemplateSlice} from "@store/template-slice";
 import { ConfigSlice, createConfigSlice } from './config-slice';
 import { LocalStorageInterface } from '@type/chat';
 import { migrateV0 } from './migrate';
 
-export type StoreState = ChatSlice & InputSlice & AuthSlice & ConfigSlice;
+export type StoreState = ChatSlice & InputSlice & AuthSlice & ConfigSlice & TemplateSlice;
 
 export type StoreSlice<T> = (
   set: StoreApi<StoreState>['setState'],
@@ -21,9 +22,10 @@ const useStore = create<StoreState>()(
       ...createInputSlice(set, get),
       ...createAuthSlice(set, get),
       ...createConfigSlice(set, get),
+      ...createTemplateSlice(set, get),
     }),
     {
-      name: 'free-chat-gpt',
+      name: 'chat-gpt-web-app-pkucs',
       partialize: (state) => ({
         chats: state.chats,
         currentChatIndex: state.currentChatIndex,
@@ -31,6 +33,7 @@ const useStore = create<StoreState>()(
         apiFree: state.apiFree,
         apiFreeEndpoint: state.apiFreeEndpoint,
         theme: state.theme,
+        templates: state.templates,
       }),
       version: 1,
       migrate: (persistedState, version) => {

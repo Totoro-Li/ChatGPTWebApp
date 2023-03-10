@@ -1,4 +1,5 @@
 import { Theme } from './theme';
+import {TextTemplate} from "@type/template";
 
 export type Role = 'user' | 'assistant' | 'system';
 export const roles: Role[] = ['user', 'assistant', 'system'];
@@ -27,4 +28,5 @@ export interface LocalStorageInterface {
   apiFree: boolean;
   apiFreeEndpoint: string;
   theme: Theme;
+  templates: TextTemplate[];
 }
