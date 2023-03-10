@@ -3,7 +3,7 @@ import {ChatInterface, MessageInterface} from '@type/chat';
 import {getChatCompletion as getChatCompletionFree, getChatCompletionStream as getChatCompletionStreamFree,} from '@api/freeApi';
 import {getChatCompletion as getChatCompletionCustom, getChatCompletionStream as getChatCompletionStreamCustom,} from '@api/customApi';
 import {parseEventSource} from '@api/helper';
-import {limitMessageTokens} from '@utils/messageUtils';
+import {truncateMessages} from '@utils/messageTruncate';
 import {defaultChatConfig} from '@constants/chat';
 
 const useSubmit = () => {
@@ -48,11 +48,11 @@ const useSubmit = () => {
 
         try {
             let stream;
-            const messages = limitMessageTokens(
+            const messages = truncateMessages(
                 chats[currentChatIndex].messages,
                 4000
             );
-            if (messages.length === 0) throw new Error('Message exceed max token!');
+            if (messages.length === 0) throw new Error('Message exceeds max token!');
 
             if (apiFree) {
                 stream = await getChatCompletionStreamFree(
