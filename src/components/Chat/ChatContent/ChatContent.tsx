@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import useStore from '@store/store';
 
@@ -32,72 +32,72 @@ const ChatContent = () => {
     );
     const generating = useStore.getState().generating;
 
-  const saveRef = useRef<HTMLDivElement>(null);
+    const saveRef = useRef<HTMLDivElement>(null);
 
-  // clear error at the start of generating new messages
-  useEffect(() => {
-    if (generating) {
-      setError('');
-    }
-  }, [generating]);
+    // clear error at the start of generating new messages
+    useEffect(() => {
+        if (generating) {
+            setError('');
+        }
+    }, [generating]);
 
     const {error} = useSubmit();
 
-  return (
-    <div className='flex-1 overflow-hidden'>
-      <ScrollToBottom
-        className='h-full dark:bg-gray-800'
-        followButtonClassName='hidden'
-      >
-        <ScrollToBottomButton />
-        <div className='flex flex-col items-center text-sm dark:bg-gray-800'>
-          <div
-            className='flex flex-col items-center text-sm dark:bg-gray-800 w-full'
-            ref={saveRef}
-          >
-            <ChatTitle />
-            {messages?.length === 0 && <NewMessageButton messageIndex={-1} />}
-            {messages?.map((message, index) => (
-              <>
-                <Message
-                  role={message.role}
-                  content={message.content}
-                  messageIndex={index}
-                />
-                <NewMessageButton messageIndex={index} />
-              </>
-            ))}
-          </div>
+    return (
+        <div className='flex-1 overflow-hidden'>
+            <ScrollToBottom
+                className='h-full dark:bg-gray-800'
+                followButtonClassName='hidden'
+            >
+                <ScrollToBottomButton/>
+                <div className='flex flex-col items-center text-sm dark:bg-gray-800'>
+                    <div
+                        className='flex flex-col items-center text-sm dark:bg-gray-800 w-full'
+                        ref={saveRef}
+                    >
+                        <ChatTitle/>
+                        {messages?.length === 0 && <NewMessageButton messageIndex={-1}/>}
+                        {messages?.map((message, index) => (
+                            <>
+                                <Message
+                                    role={message.role}
+                                    content={message.content}
+                                    messageIndex={index}
+                                />
+                                <NewMessageButton messageIndex={index}/>
+                            </>
+                        ))}
+                    </div>
 
-          <Message
-            role={inputRole}
-            content=''
-            messageIndex={stickyIndex}
-            sticky
-          />
-          {error !== '' && (
-            <div className='relative py-2 px-3 w-3/5 mt-3 max-md:w-11/12 border rounded-md border-red-500 bg-red-500/10'>
-              <div className='text-gray-600 dark:text-gray-100 text-sm whitespace-pre-wrap'>
-                {error}
-              </div>
-              <div
-                className='text-white absolute top-1 right-1 cursor-pointer'
-                onClick={() => {
-                  setError('');
-                }}
-              >
-                <CrossIcon />
-              </div>
-            </div>
-          )}
-          <div className='mt-4'>
-            <DownloadChat saveRef={saveRef} />
-          </div>
-          <div className='w-full h-36'></div>
+                    <Message
+                        role={inputRole}
+                        content=''
+                        messageIndex={stickyIndex}
+                        sticky
+                    />
+                    {error !== '' && (
+                        <div className='relative py-2 px-3 w-3/5 mt-3 max-md:w-11/12 border rounded-md border-red-500 bg-red-500/10'>
+                            <div className='text-gray-600 dark:text-gray-100 text-sm whitespace-pre-wrap'>
+                                {error}
+                            </div>
+                            <div
+                                className='text-white absolute top-1 right-1 cursor-pointer'
+                                onClick={() => {
+                                    setError('');
+                                }}
+                            >
+                                <CrossIcon/>
+                            </div>
+                        </div>
+                    )}
+                    <div className='mt-4'>
+                        <DownloadChat saveRef={saveRef}/>
+                    </div>
+                    <div className='w-full h-36'></div>
+                </div>
+            </ScrollToBottom>
         </div>
-      </ScrollToBottom>
-    </div>
-  );
+    );
 };
 
 export default ChatContent;

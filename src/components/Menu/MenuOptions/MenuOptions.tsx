@@ -13,7 +13,7 @@ const MenuOptions = () => {
         <>
             <AboutMenu/>
             <ClearConversation/>
-            <ImportExportChat />
+            <ImportExportChat/>
             <Api/>
             <Template/>
             <ThemeSwitcher/>

@@ -125,24 +125,24 @@ const useSubmit = () => {
                     content: `Generate a title in less than 6 words for the following message:\nUser: ${user_message}\nAssistant: ${assistant_message}`,
                 };
 
-        let title = await generateTitle([message]);
-        if (title.startsWith('"') && title.endsWith('"')) {
-          title = title.slice(1, -1);
+                let title = await generateTitle([message]);
+                if (title.startsWith('"') && title.endsWith('"')) {
+                    title = title.slice(1, -1);
+                }
+                const updatedChats: ChatInterface[] = JSON.parse(
+                    JSON.stringify(useStore.getState().chats)
+                );
+                updatedChats[currentChatIndex].title = title;
+                updatedChats[currentChatIndex].titleSet = true;
+                setChats(updatedChats);
+            }
+        } catch (e: unknown) {
+            const err = (e as Error).message;
+            console.log(err);
+            setError(err);
         }
-        const updatedChats: ChatInterface[] = JSON.parse(
-          JSON.stringify(useStore.getState().chats)
-        );
-        updatedChats[currentChatIndex].title = title;
-        updatedChats[currentChatIndex].titleSet = true;
-        setChats(updatedChats);
-      }
-    } catch (e: unknown) {
-      const err = (e as Error).message;
-      console.log(err);
-      setError(err);
-    }
-    setGenerating(false);
-  };
+        setGenerating(false);
+    };
 
     return {handleSubmit, error};
 };
