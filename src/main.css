@@ -81,7 +81,7 @@
     }
 
     pre {
-        scrollbar-width: 0;
+        scrollbar-width: none; /* Firefox */
     }
 
     textarea:focus {
