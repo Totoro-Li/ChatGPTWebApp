@@ -12,6 +12,8 @@
     "dompurify": "^3.0.1",
     "gpt3-tokenizer": "^1.1.5",
     "highlight.js": "^11.7.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.5",
