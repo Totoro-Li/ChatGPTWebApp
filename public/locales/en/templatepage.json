@@ -1,0 +1,10 @@
+{
+  "description": {
+    "paragraph1": "Templates edited here are saved locally and will not be synced with other devices or other users of this app.",
+    "paragraph2": "This function is implemented by Li Z. and is not affiliated with the original author of this app, OpenAI, or Peking University.",
+    "paragraph3": "You can access templates defined here by selecting index in the \"Text Template\" dropdown menu on top of the chat view. Built-in templates for Peking University OIR are not editable."
+  },
+  "content": "Template content",
+  "add": "Add new template",
+  "delete": "Delete selected template"
+}

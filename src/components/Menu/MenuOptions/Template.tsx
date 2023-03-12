@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import useStore from '@store/store';
 
 import TemplateIcon from "@icon/TemplateIcon";
 import TemplateMenu from "@components/TemplateMenu";
 
 const Config = () => {
+    const {t} = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const templates = useStore((state) => state.templates);
     const setSelectedTemplate = useStore((state) => state.setSelectedTemplate);
@@ -17,7 +19,7 @@ const Config = () => {
                 onClick={() => setIsModalOpen(true)}
             >
                 <TemplateIcon/>
-                Templates Editor
+                {t('template')}
             </a>
             <TemplateMenu isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} templates={templates} setSelectedTemplate={setSelectedTemplate} addTemplate={addTemplate} deleteTemplate={deleteTemplate}/>
         </>

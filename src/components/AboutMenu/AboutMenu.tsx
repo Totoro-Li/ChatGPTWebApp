@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import PopupModal from '@components/PopupModal';
 import AboutIcon from '@icon/AboutIcon';
 
 const AboutMenu = () => {
-  const { t } = useTranslation(['main', 'about']);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const {t} = useTranslation(['main', 'about']);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [visitedBefore, setVisitedBefore] = useState<boolean>(false);
     useEffect(() => {

@@ -15,10 +15,9 @@ const MenuOptions = () => {
             <ClearConversation/>
             <ImportExportChat/>
             <Api/>
-            <SettingsMenu />
+            <SettingsMenu/>
             <Template/>
-            <ThemeSwitcher/>
-            {/*TODO GlobalSettings*/}
+            {/*<ThemeSwitcher/>* Moved to SettingsMenu/}
             {/* <Account /> */}
             {/*<Updates/>*/}
             <Me/>

@@ -26,15 +26,15 @@ export const isChats = (chats: any): chats is ChatInterface[] => {
 };
 
 export const htmlToImg = async (html: HTMLDivElement) => {
-  const needResize = window.innerWidth >= 1024;
-  const initialWidth = html.style.width;
-  if (needResize) {
-    html.style.width = '1023px';
-  }
-  const canvas = await html2canvas(html);
-  if (needResize) html.style.width = initialWidth;
-  const dataURL = canvas.toDataURL('image/png');
-  return dataURL;
+    const needResize = window.innerWidth >= 1024;
+    const initialWidth = html.style.width;
+    if (needResize) {
+        html.style.width = '1023px';
+    }
+    const canvas = await html2canvas(html);
+    if (needResize) html.style.width = initialWidth;
+    const dataURL = canvas.toDataURL('image/png');
+    return dataURL;
 };
 
 export const downloadImg = (imgData: string, fileName: string) => {
