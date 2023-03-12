@@ -139,11 +139,7 @@ const ApiMenu = ({
                     </a>
                 </div>
                 <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
-                    We prioritise the security of your API key and handle it with utmost
-                    care. Your key is exclusively stored on your browser and never shared
-                    with any third-party entity. It is solely used for the intended
-                    purpose of accessing the OpenAI API and not for any other unauthorised
-                    use.
+                    {t('securityMessage', {ns: 'apiPage'})}
                 </div>
             </div>
         </PopupModal>

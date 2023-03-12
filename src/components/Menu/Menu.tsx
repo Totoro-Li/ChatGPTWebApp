@@ -4,6 +4,7 @@ import NewChat from './NewChat';
 import ChatHistoryList from './ChatHistoryList';
 import MenuOptions from './MenuOptions';
 import CrossIcon2 from '@icon/CrossIcon2';
+import IFCIcon from "@icon/IFCIcon";
 
 const Menu = () => {
     return (
@@ -12,6 +13,14 @@ const Menu = () => {
                 id='menu'
                 className='dark bg-gray-900 md:fixed md:inset-y-0 md:flex md:w-[260px] md:flex-col max-md:translate-x-[-100%] max-md:fixed max-md:transition-transform max-md:z-[999] max-md:top-0 max-md:left-0 max-md:h-full max-md:w-3/4'
             >
+                <div className='flex items-center justify-between p-2 border-b border-white/20'>
+                    <div className='flex items-center space-x-2'>
+                        <div className='w-8 h-8 rounded-full bg-transparent'>
+                            <IFCIcon/>
+                        </div>
+                        <div className='text-white'>Elysium</div>
+                    </div>
+                </div>
                 <div className='flex h-full min-h-0 flex-col '>
                     <div className='scrollbar-trigger flex h-full w-full flex-1 items-start border-white/20'>
                         <nav className='flex h-full flex-1 flex-col space-y-1 p-2'>
