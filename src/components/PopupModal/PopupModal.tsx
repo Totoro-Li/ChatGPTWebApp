@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useTranslation } from 'react-i18next';
 
 import CrossIcon2 from '@icon/CrossIcon2';
 
@@ -20,7 +21,8 @@ const PopupModal = ({
     cancelButton?: boolean;
     children?: React.ReactElement;
 }) => {
-    const modalRoot = document.getElementById('modal-root');
+  const modalRoot = document.getElementById('modal-root');
+  const { t } = useTranslation();
 
     const _handleClose = () => {
         handleClose && handleClose();
@@ -55,38 +57,38 @@ const PopupModal = ({
 
                         {children}
 
-                        <div className='flex items-center justify-center p-6 gap-4'>
-                            {handleConfirm && (
-                                <button
-                                    type='button'
-                                    className='btn btn-primary'
-                                    onClick={handleConfirm}
-                                >
-                                    Confirm
-                                </button>
-                            )}
-                            {cancelButton && (
-                                <button
-                                    type='button'
-                                    className='btn btn-neutral'
-                                    onClick={_handleClose}
-                                >
-                                    Cancel
-                                </button>
-                            )}
-                        </div>
-                    </div>
-                </div>
-                <div
-                    className='bg-gray-800/90 absolute top-0 left-0 h-full w-full z-[-1]'
-                    onClick={_handleClose}
-                />
-            </div>,
-            modalRoot
-        );
-    } else {
-        return null;
-    }
+            <div className='flex items-center justify-center p-6 gap-4'>
+              {handleConfirm && (
+                <button
+                  type='button'
+                  className='btn btn-primary'
+                  onClick={handleConfirm}
+                >
+                  {t('confirm')}
+                </button>
+              )}
+              {cancelButton && (
+                <button
+                  type='button'
+                  className='btn btn-neutral'
+                  onClick={_handleClose}
+                >
+                  {t('cancel')}
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+        <div
+          className='bg-gray-800/90 absolute top-0 left-0 h-full w-full z-[-1]'
+          onClick={_handleClose}
+        />
+      </div>,
+      modalRoot
+    );
+  } else {
+    return null;
+  }
 };
 
 export default PopupModal;

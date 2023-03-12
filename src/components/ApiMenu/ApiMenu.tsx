@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import useStore from '@store/store';
 
 import PopupModal from '@components/PopupModal';
@@ -10,6 +11,7 @@ const ApiMenu = ({
     isModalOpen: boolean;
     setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+    const { t } = useTranslation(['main', 'api']);
     const apiKey = useStore((state) => state.apiKey);
     const setApiKey = useStore((state) => state.setApiKey);
     const apiFree = useStore((state) => state.apiFree);
@@ -50,7 +52,7 @@ const ApiMenu = ({
 
     return isModalOpen ? (
         <PopupModal
-            title='API'
+            title={t('api') as string}
             setIsModalOpen={setIsModalOpen}
             handleConfirm={handleSave}
             handleClose={handleClose}
@@ -64,7 +66,7 @@ const ApiMenu = ({
                         onChange={() => _setApiFree(true)}
                     />
                     <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-                        Use free API endpoint
+                    {t('apiEndpoint.option', { ns: 'api' })}
                     </label>
                 </div>
 
@@ -106,14 +108,14 @@ const ApiMenu = ({
                         onChange={() => _setApiFree(false)}
                     />
                     <label className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-                        Use your own API key
+                      {t('apiKey.option', { ns: 'api' })}
                     </label>
                 </div>
 
                 {_apiFree === false && (
                     <div className='flex gap-2 items-center justify-center mt-2'>
                         <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-                            API Key
+                          {t('apiEndpoint.inputLabel', { ns: 'api' })}
                         </div>
                         <input
                             type='text'

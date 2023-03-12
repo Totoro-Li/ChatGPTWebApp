@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import useStore from '@store/store';
 
 import PersonIcon from '@icon/PersonIcon';
 import ApiMenu from '@components/ApiMenu';
 
 const Config = () => {
+    const { t } = useTranslation();
     const apiFree = useStore((state) => state.apiFree);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -15,7 +17,7 @@ const Config = () => {
                 onClick={() => setIsModalOpen(true)}
             >
                 <PersonIcon/>
-                API: {apiFree ? 'Public' : 'Personal'}
+                {t('api')}: {apiFree ? 'Public' : 'Personal'}
             </a>
             <ApiMenu isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
         </>

@@ -6,6 +6,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 import AboutMenu from '@components/AboutMenu';
 import Template from "./Template";
 import ImportExportChat from '@components/ImportExportChat';
+import SettingsMenu from '@components/SettingsMenu';
 
 const MenuOptions = () => {
     return (
@@ -14,6 +15,7 @@ const MenuOptions = () => {
             <ClearConversation/>
             <ImportExportChat/>
             <Api/>
+            <SettingsMenu />
             <Template/>
             <ThemeSwitcher/>
             {/*TODO GlobalSettings*/}
