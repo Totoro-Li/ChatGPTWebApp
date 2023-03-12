@@ -6,14 +6,16 @@ const AboutMenu = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [visitedBefore, setVisitedBefore] = useState<boolean>(false);
     useEffect(() => {
-        const storedValue = localStorage.getItem("vis_flag");
-        const hasVisited = storedValue === "true";
-        setVisitedBefore(hasVisited);
-        if (!hasVisited) {
+        if (!(localStorage.getItem("vis_flag") === "true")) {
             localStorage.setItem("vis_flag", String(true));
             setIsModalOpen(true);
         }
     }, []);
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setVisitedBefore(true);
+    }
 
     return (
         <>
@@ -33,12 +35,8 @@ const AboutMenu = () => {
                     title='About'
                     setIsModalOpen={setIsModalOpen}
                     cancelButton={false}
-                    handleConfirm={() => {
-                        setIsModalOpen(false);
-                    }}
-                    handleClose={() => {
-                        setIsModalOpen(false);
-                    }}
+                    handleConfirm={handleCloseModal}
+                    handleClose={handleCloseModal}
                 >
                     <div className='p-6 border-b border-gray-200 dark:border-gray-600'>
                         <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm flex flex-col gap-2'>
