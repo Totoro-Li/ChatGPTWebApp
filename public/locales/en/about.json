@@ -1,5 +1,11 @@
 {
-  "description": "Free ChatGPT is an amazing open-source web app that allows you to play with OpenAI's ChatGPT API for free!",
+  "description": {
+    "title": "Aloha!",
+    "paragraph1": "This site provides ChatGPT for the Secretariat students without the need for a proxy or account registration. It may serve as a faster and more convenient alternative for most students, without the need for CAPTCHA verification. If you have some interest and understanding, you can also try the question-and-answer templates specially developed for PKU OIR, which have been Fine-Tuned for commonly used texts, letter formats, and Peking University-related vocabulary and concepts, with the aim of providing a smoother and more efficient AI workflow.",
+    "paragraph2": "As a project developed in my spare time, this site is still under continuous improvement. Please provide valuable feedback for bugs through my contact information in the lower-left corner.",
+    "paragraph3": "This project is based on the open-source project ChatGPTFreeApp modified and deployed by <0>ztjhz</0>, which is hereby noted.",
+    "paragraph4": "Have fun playing! Happy hacking!"
+  },
   "sourceCode": "Checkout the <0>source code</0> on GitHub and give it a ⭐️!",
   "privacyStatement": {
     "title": "Privacy Statement",

@@ -2,7 +2,8 @@
   "securityMessage": "We prioritise the security of your API key and handle it with utmost care. Your key is exclusively stored on your browser and never shared with any third-party entity. It is solely used for the intended purpose of accessing the OpenAI API and not for any other unauthorised use.",
   "apiEndpoint": {
     "option": "Use OIR public API endpoint",
-    "inputLabel": "OIR public API Endpoint"
+    "inputLabel": "OIR public API Endpoint",
+    "description": "Use OIR public API endpoint provided by Li, or enter another endpoint if available."
   },
   "apiKey": {
     "option": "Use your own API key",

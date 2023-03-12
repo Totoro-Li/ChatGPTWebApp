@@ -1,5 +1,11 @@
 {
-  "description": "Free ChatGPT 是一个神奇的开源 Web 应用，允许您免费使用 OpenAI 的 ChatGPT API 进行对话！",
+  "description": {
+    "title": "别来无恙",
+    "paragraph1": "本站为秘书处同学提供免翻墙和账号注册的ChatGPT，可能对大部分同学而言是个没有人机验证、也不用翻墙，速度更快的替代品。如果有一定兴趣和理解能力，也可以尝试一下针对秘书处工作特别开发的问答模板，针对国合及秘书处常用文书工作、信函格式，以及北大相关词汇概念进行了Fine-Tuning，致力于提供更平滑、更高效的AI工作流。",
+    "paragraph2":"作为业余开发的项目，本站仍在不断完善中，针对bug请通过左下角我的联系方式提出宝贵意见。",
+    "paragraph3": "本项目基于<0>ztjhz</0>提供的开源项目ChatGPTFreeApp修改部署，特此标注",
+    "paragraph4":"玩耍愉快！Happy hacking!"
+  },
   "sourceCode": "在 GitHub 上查看<0>源代码</0>并给它一个⭐️！",
   "privacyStatement": {
     "title": "隐私声明",

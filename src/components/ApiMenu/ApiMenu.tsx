@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 import useStore from '@store/store';
 
 import PopupModal from '@components/PopupModal';
@@ -73,19 +73,11 @@ const ApiMenu = ({
                 {_apiFree && (
                     <div className='mt-2 mb-6'>
                         <div className='text-sm font-medium text-gray-900 dark:text-gray-300 mb-2'>
-                            Use free API endpoint from{' '}
-                            <a
-                                href='https://github.com/Totoro-Li'
-                                className='underline dark:hover:text-white hover:text-black'
-                                target='_blank'
-                            >
-                                Li
-                            </a>
-                            : https://api.pkucs.top/chat/ or enter your own API endpoint
+                            {t('apiEndpoint.description', {ns: 'apiPage'})}
                         </div>
                         <div className='flex gap-2 items-center justify-center'>
                             <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-                                Free API Endpoint
+                                {t('apiEndpoint.inputLabel', {ns: 'apiPage'})}
                             </div>
                             <input
                                 type='text'
@@ -115,7 +107,7 @@ const ApiMenu = ({
                 {!_apiFree && (
                     <div className='flex gap-2 items-center justify-center mt-2'>
                         <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm'>
-                            {t('apiEndpoint.inputLabel', {ns: 'apiPage'})}
+                            {t('apiKey.inputLabel', {ns: 'apiPage'})}
                         </div>
                         <input
                             type='text'
@@ -129,14 +121,17 @@ const ApiMenu = ({
                 )}
 
                 <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4 text-center'>
-                    Get your personal API key{' '}
-                    <a
-                        className='link'
-                        href='https://platform.openai.com/account/api-keys'
-                        target='_blank'
-                    >
-                        here
-                    </a>
+                    <Trans
+                        i18nKey='apiKey.howTo'
+                        ns='apiPage'
+                        components={[
+                            <a
+                                href='https://platform.openai.com/account/api-keys'
+                                className='link'
+                                target='_blank'
+                            />,
+                        ]}
+                    />
                 </div>
                 <div className='min-w-fit text-gray-900 dark:text-gray-300 text-sm mt-4'>
                     {t('securityMessage', {ns: 'apiPage'})}

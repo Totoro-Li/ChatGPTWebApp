@@ -19,7 +19,7 @@ const TemplateMenu = ({
     addTemplate: (template: TextTemplate) => void;
     deleteTemplate: (template: TextTemplate) => void;
 }) => {
-    const {t} = useTranslation(['main', 'templatepage']);
+    const {t} = useTranslation(['main', 'templatePage']);
     const [selectedTemplateName, setSelectedTemplateName] =
         useState<string>(templates.length > 0 ? templates[0].name : '');
     const [editorVisible, setEditorVisible] = useState<boolean>(false);
@@ -75,9 +75,9 @@ const TemplateMenu = ({
             <div className="p-6 border-b border-gray-200 dark:border-gray-600">
                 <div className="flex flex-col gap-y-2 mb-4">
                     <label htmlFor="templateSelect" className="text-sm font-medium text-gray-900 dark:text-gray-300">
-                        {t('description.paragraph1', {ns: "templatepage"})}<br/>
-                        {t('description.paragraph2', {ns: "templatepage"})}<br/>
-                        {t('description.paragraph3', {ns: "templatepage"})}
+                        {t('description.paragraph1', {ns: "templatePage"})}<br/>
+                        {t('description.paragraph2', {ns: "templatePage"})}<br/>
+                        {t('description.paragraph3', {ns: "templatePage"})}
                     </label>
                     {!editorVisible && (<select id="templateSelect" value={selectedTemplateName} onChange={handleTemplateChange}
                                                 className="py-2 px-3 rounded-md text-gray-800 dark:text-white bg-gray-200 dark:bg-gray-700 border-none focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-600">
@@ -99,7 +99,7 @@ const TemplateMenu = ({
                         </div>
                         <div className="flex flex-col gap-y-2">
                             <label htmlFor="templateContent" className="text-sm font-medium text-gray-900 dark:text-gray-300">
-                                {t('content', {ns: 'templatepage'})}:
+                                {t('content', {ns: 'templatePage'})}:
                             </label>
                             <textarea
                                 id="templateContent"
@@ -116,7 +116,7 @@ const TemplateMenu = ({
                             className="px-4 py-2 rounded-md text-sm font-medium text-white bg-green-500 hover:bg-green-600 dark:bg-green-700 dark:hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-600"
                             onClick={handleAddTemplateClick}
                         >
-                            {t('add', {ns: 'templatepage'})}
+                            {t('add', {ns: 'templatePage'})}
                         </button>
                     </div>
                     <div className="mt-4">
@@ -124,7 +124,7 @@ const TemplateMenu = ({
                             className="px-4 py-2 rounded-md text-sm font-medium text-white bg-red-500 hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 dark:focus:ring-red-600"
                             onClick={handleDeleteTemplateClick}
                         >
-                            {t('delete', {ns: 'templatepage'})}
+                            {t('delete', {ns: 'templatePage'})}
                         </button>
                     </div>
                 </div>)}
